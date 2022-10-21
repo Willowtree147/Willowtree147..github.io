@@ -44,37 +44,47 @@
 *********************************************************************/
 
 
-// Our master array of Halloween words.  Note how it is declared as a CONST. Thats because we dont want anything changing these values
-const allWords = ["minotaur", "scylla", "charybdis", "kraken", "grendel", "dracula", "smaug", "balrog", "frankenstein", "morlocks", "pennywise", "headlesshorseman", "jekyll", "hyde", "werewolfs", "reddeath", "vampire", "shoggoth", "yog-sothoth", "cat", "dagon", "azathoth", "jabberwoky", "ghoul", "cthullhu", "sirens", "medusa", "echidna", "polyphemus", "basilisk", "kraken", "it", "devil", "demon", "annabell", "doppelganger", "sauron", "babayaga", "fox"]
 
-
-//Select a random word from the "allWords" array and assign it to a variable called "selectedWord"
-let cat = Math.floor(Math.random() * (allWords.length - 1)); //Don't worry about this math, but it will select a random number between 0 and the last index of the allWords array.
-let selectedWord = allWords[randomIndex]; // Use that random index in allWords and set that to a new variable that will hold our selectedWord.
-
-
-//Scramble the selectedWord and display it inside of a div called "scrambledWord"
-document.getElementById("scrambledWord").innerHTML = selectedWord
-  .split("") //This will split the word into an array of letters
-  .sort(() => Math.random() - 0.5) //This will randomly sort the array of letters
-  .join(""); //Now we want to join all those array elements back together into a string
-string.trim("")
+// Our master array of Halloween words
+const allWords = ["minotaur", "scylla", "charybdis", "kraken", "kelpie", "dracula", "smaug", "it", "pennywise", "frankenstein", "jabberwoky", "ghoul", "sirens", "cat", "medusa", "devil", "vampire", "basilisk", "annabell", "demon", "fox", "kraken", "echidna", "doppelganger", "sauron", "frodo", "babayaga"];
+let selectedWord = "";
+let gameOver = false;
+let unscrambledCounter = 0;
 
 
 
-// This is a placeholder. You will need to move code into this funcation as part of the assignment. HINT -- the code you want to move into this function is above. :)
-function nextWord() {["minotaur", "scylla", "charybdis", "kraken", "grendel", "dracula", "smaug", "balrog", "frankenstein", "morlocks", "pennywise", "headlesshorseman", "jekyll", "hyde", "werewolfs", "reddeath", "vampire", "shoggoth", "yog-sothoth", "cat", "dagon", "azathoth", "jabberwoky", "ghoul", "cthullhu", "sirens", "medusa", "echidna", "polyphemus", "basilisk", "kraken", "it", "devil", "demon", "annabell", "doppelganger", "sauron", "babayaga", "fox"] }
+function nextWord() {
+  //Select a random word from the "words" array and assign it to a variable called "selectedWord";
+  selectedWord = allWords[Math.floor(Math.random() * (allWords.length - 1))].toLowerCase();
 
-// This function is called when the user clicks on the "Check" button.
+  //Scramble the selectedWord and display it inside of a div
+  document.getElementById("scrambledWord").innerHTML = selectedWord
+    .split("")
+    .sort(() => Math.random() - 0.5)
+    .join("");
+}
+
+//A function that gets called when the user clicks on the Check button. 
 function check() {
-  if (selectedWord === document.getElementById("myWord").value) {
-    alert("CORRECT!")
+  if (gameOver) { alert("The Game is over. Thanks for playing! Refresh to try again."); return false; }
+
+  if (selectedWord === document.getElementById("myWord").value.toLowerCase()) {
+    alert("YES!");
+    document.getElementById("unscrambled").innerHTML += `<div>${selectedWord}</div>`;
+    document.getElementById("myWord").value = "";
+    unscrambledCounter++;
+    nextWord();
+  } else {
+    alert("WRONG!");
+    giveUp();
   }
 }
 
-//This function gets called when the user clicks on the "Give Up" button.
+//A function that gets called when the user clicks on the Give Up button.
 function giveUp() {
   document.getElementById("myWord").value = selectedWord;
+  gameOver = true;
+  alert("Game Over! You unscrambled " + unscrambledCounter + " words");
 }
 
-//nextWord();
+nextWord()
