@@ -1,11 +1,13 @@
 body{
   background:#ffffff;
-  font-family:AmericanTypewriter;
-  
-  text-align:center;
-  font-size:20px;
-  margin-top:0;
-}
+  font-family:Luminari;
+  background-image: url('https://images.unsplash.com/photo-1483982258113-b72862e6cff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+  background-size:cover;
+    font-size:26px;
+ color:#ebebeb ;
+    text-align:center;
+    margin-top:45;
+    }
 
 button{
     background:#ffffff;
@@ -14,3 +16,10 @@ button{
   font-size:12px;
   margin-top:0;
 }
+
+
+#myWord{  
+  font-family:AmericanTypewriter;
+  text-align:center;
+  font-size:20px;
+  margin-top:0;}

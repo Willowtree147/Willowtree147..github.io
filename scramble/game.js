@@ -46,7 +46,7 @@
 
 
 // Our master array of Halloween words
-const allWords = ["minotaur", "scylla", "charybdis", "kraken", "kelpie", "dracula", "smaug", "it", "pennywise", "frankenstein", "jabberwoky", "ghoul", "sirens", "cat", "medusa", "devil", "vampire", "basilisk", "annabell", "demon", "fox", "kraken", "echidna", "doppelganger", "sauron", "frodo", "babayaga"];
+const allWords = ["minotaur", "scylla", "charybdis", "kraken", "kelpie", "dracula", "smaug", "it", "pennywise", "frankenstein", "jabberwocky", "ghoul", "sirens", "cat", "medusa", "devil", "vampire", "basilisk", "annabell", "demon", "fox", "kraken", "echidna", "doppelganger", "sauron", "frodo", "babayaga"];
 let selectedWord = "";
 let gameOver = false;
 let unscrambledCounter = 0;
@@ -61,7 +61,7 @@ function nextWord() {
   document.getElementById("scrambledWord").innerHTML = selectedWord
     .split("")
     .sort(() => Math.random() - 0.5)
-    .join("");
+    .join("")
 }
 
 //A function that gets called when the user clicks on the Check button. 
