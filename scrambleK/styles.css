@@ -1,0 +1,25 @@
+body{
+  background:#ffffff;
+  font-family:Luminari;
+  background-image: url('');
+  background-size:cover;
+    font-size:26px;
+ color:#ebebeb ;
+    text-align:center;
+    margin-top:45;
+    }
+
+button{
+    background:#ffffff;
+  font-family:AmericanTypewriter;
+  text-align:center;
+  font-size:12px;
+  margin-top:0;
+}
+
+
+#myWord{  
+  font-family:AmericanTypewriter;
+  text-align:center;
+  font-size:20px;
+  margin-top:0;}
